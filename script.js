@@ -90,29 +90,29 @@ const investments = [
 
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = `
-    <div class="result-item"><strong>Keputusan Maximax:</strong> ${
+    <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Keputusan Maximax:</strong> ${
       maximaxDecision.value
     } (${maximaxDecision.name})</div>
-    <div class="result-item"><strong>Keputusan Maximin:</strong> ${
+    <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Keputusan Maximin:</strong> ${
       maximinDecision.value
     } (${maximinDecision.name})</div>
-    <div class="result-item"><strong>Keputusan Sama Rata:</strong> ${
+    <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Keputusan Sama Rata:</strong> ${
       rataRataDecision.value
     } (${rataRataDecision.name})</div>
-    <div class="result-item"><strong>Expected Value Obligasi:</strong> ${
+    <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Obligasi:</strong> ${
       expectedValues.find((ev) => ev.name === "Obligasi").value
     }</div>
-    <div class="result-item"><strong>Expected Value Deposito:</strong> ${
+    <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Deposito:</strong> ${
       expectedValues.find((ev) => ev.name === "Deposito").value
     }</div>
-    <div class="result-item"><strong>Expected Value Properti:</strong> ${
+    <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Properti:</strong> ${
       expectedValues.find((ev) => ev.name === "Properti").value
     }</div>
-    <div class="result-item"><strong>Keputusan Expected Value:</strong> ${
+    <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Keputusan Expected Value:</strong> ${
       expectedValueDecision.name
     }</div>
-    <div class="result-item"><strong>Expected Value Under Certainly (EVUC):</strong> ${EVUC}</div>
-    <div class="result-item"><strong>Expected Value of Perfect Information (EVPI):</strong> ${EVPI}</div>
+    <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Under Certainly (EVUC):</strong> ${EVUC}</div>
+    <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value of Perfect Information (EVPI):</strong> ${EVPI}</div>
 `;
   }
 
