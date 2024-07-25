@@ -48,9 +48,10 @@
       <div id="user-input-controls" class="hidden mb-5">
         <label for="numAlternatives">Banyak Alternatif Investasi: </label>
         <input type="number" id="numAlternatives" class="p-1 border rounded mr-4" min="1" value="3">
-        <button class="ml-4 p-2 bg-blue-600 text-white rounded-md" onclick="generateNewTable()">Buat Tabel</button>
+        <button class="ml-4 p-2 bg-blue-600 text-white rounded-md" id="buatTabelButton">Buat Tabel</button>
       </div>
 
+      <h1 class="text-2xl text-center mb-2">Studi Kasus Investasi</h1>
       <table id="investment-table">
         <thead>
           <tr>
@@ -65,11 +66,12 @@
         </thead>
         <tbody id="investment-tbody"></tbody>
       </table>
-      <button class="block w-full p-3 bg-green-600 text-white rounded-md text-xl hover:cursor-pointer hover:bg-green-700" onclick="calculateDecisions()">Hitung Keputusan</button>
-      <div id="results" class="mt-10"></div>
-    </div>
+      <button class="block w-full p-3 bg-green-600 text-white rounded-md text-xl hover:cursor-pointer hover:bg-green-700" id="calculateButton">Hitung Keputusan</button>
 
-    <script src="script.js">
+      <div id="results" class="mt-10">
+      </div>
+
+    <script type="module" src="script.js">
       
 
     </script>
