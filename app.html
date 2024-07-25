@@ -4,27 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Studi Kasus Investasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-        margin: 0;
-        padding: 0;
-      }
-
       .container {
-        max-width: 800px;
-        margin: 50px auto;
-        padding: 20px;
-        background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-      }
-
-      h1 {
-        text-align: center;
-        color: #444;
       }
 
       table {
@@ -44,39 +28,12 @@
         background-color: #f8f8f8;
       }
 
-      button {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #218838;
-        transition: all 100ms ease-in-out;
-      }
-
-      #results {
-        margin-top: 20px;
-      }
-
-      .result-item {
-        margin-bottom: 10px;
-        padding: 10px;
-        background-color: #f8f8f8;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
     </style>
+
   </head>
-  <body>
-    <div class="container">
-      <h1>Studi Kasus Investasi</h1>
+  <body class="bg-gray-100 font-mono">
+    <div class="container max-w-[60rem] mx-auto my-10 p-5 bg-white rounded-md">
+      <h1 class="text-3xl text-center mb-5">Studi Kasus Investasi</h1>
       <table id="investment-table">
         <thead>
           <tr>
@@ -91,8 +48,8 @@
         </thead>
         <tbody id="investment-tbody"></tbody>
       </table>
-      <button onclick="calculateDecisions()">Hitung Keputusan</button>
-      <div id="results"></div>
+      <button class="block w-full p-3 bg-green-600 text-white rounded-md text-xl hover:cursor-pointer hover:bg-green-700" onclick="calculateDecisions()">Hitung Keputusan</button>
+      <div id="results" class="mt-10"></div>
     </div>
 
     <script src="script.js"></script>
