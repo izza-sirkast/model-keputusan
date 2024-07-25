@@ -98,7 +98,7 @@ function updateInvestmentsValue(){
 
   }
 
-  console.log(investments)
+  return investments
 }
 
 function populateTable() {
@@ -122,7 +122,15 @@ function populateTable() {
 }
 
 function calculateDecisions() {
-  updateInvestmentsValue();
+  let currentInvestments;
+
+  const userInput = document.getElementById("userInput");
+  if(userInput.checked){
+    currentInvestments = updateInvestmentsValue();
+  }else{
+    currentInvestments = investments;
+  }
+
   function expectedValue(investments, probabilities) {
     return investments.map((inv) => ({
       name: inv.name,
@@ -170,17 +178,17 @@ function calculateDecisions() {
     );
   }
 
-  const expectedValues = expectedValue(investments, probabilities);
-  const maximaxDecision = maximax(investments);
-  const maximinDecision = maximin(investments);
-  const rataRataDecision = rataRata(investments);
+  const expectedValues = expectedValue(currentInvestments, probabilities);
+  const maximaxDecision = maximax(currentInvestments);
+  const maximinDecision = maximin(currentInvestments);
+  const rataRataDecision = rataRata(currentInvestments);
   const expectedValueDecision = expectedValues.reduce(
     (max, ev) => (ev.value > max.value ? ev : max),
     { name: "", value: -Infinity }
   );
 
-  const EVUC = investments[0].values
-    .map((_, i) => Math.max(...investments.map((inv) => inv.values[i])))
+  const EVUC = currentInvestments[0].values
+    .map((_, i) => Math.max(...currentInvestments.map((inv) => inv.values[i])))
     .reduce((sum, val, index) => sum + val * probabilities[index], 0);
   const EVPI = EVUC - expectedValueDecision.value;
 
@@ -195,15 +203,7 @@ function calculateDecisions() {
   <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Keputusan Sama Rata:</strong> ${
     rataRataDecision.value
   } (${rataRataDecision.name})</div>
-  <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Obligasi:</strong> ${
-    expectedValues.find((ev) => ev.name === "Obligasi").value
-  }</div>
-  <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Deposito:</strong> ${
-    expectedValues.find((ev) => ev.name === "Deposito").value
-  }</div>
-  <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Properti:</strong> ${
-    expectedValues.find((ev) => ev.name === "Properti").value
-  }</div>
+  
   <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Keputusan Expected Value:</strong> ${
     expectedValueDecision.name
   }</div>
@@ -211,5 +211,15 @@ function calculateDecisions() {
   <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value of Perfect Information (EVPI):</strong> ${EVPI}</div>
 `;
 }
+
+// let stringMax = `<div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Obligasi:</strong> ${
+//   expectedValues.find((ev) => ev.name === "Obligasi").value
+// }</div>
+// <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Deposito:</strong> ${
+//   expectedValues.find((ev) => ev.name === "Deposito").value
+// }</div>
+// <div class="mb-3 p-4 bg-slate-50 border border-slate-200 rounded-md"><strong>Expected Value Properti:</strong> ${
+//   expectedValues.find((ev) => ev.name === "Properti").value
+// }</div>`
 
 document.addEventListener("DOMContentLoaded", populateTable);
